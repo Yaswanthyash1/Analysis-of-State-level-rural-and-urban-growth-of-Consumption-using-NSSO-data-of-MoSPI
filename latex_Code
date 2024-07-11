@@ -1,0 +1,1005 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage[british]{babel}
+\usepackage{hhline}
+\usepackage{multirow}
+\usepackage{tabu}
+\usepackage{cite}
+\usepackage{floatrow} % Required for customizing float positions
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{array}
+\usepackage{balance}
+\bibliographystyle{elsarticle-num}
+
+
+\begin{document}
+
+
+\title{\textbf{SM255M - MACRO ECONOMICS} \\ \vspace{0.5in}\fontsize{36}{60}\textbf{Analysis of State level rural and urban growth of Consumption using NSSO data of MoSPI }}
+\date{}
+\maketitle
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth,height = 12cm]{nitk.jpg}
+\end{figure}
+ \vspace{0.5in}
+
+\begin{center}
+    \textbf{Team Members:}
+    \vspace{0.2in}
+    \begin{minipage}{0.6\textwidth}
+        \begin{enumerate}
+        
+            \item N Yaswanth                 - 221CS232
+            \item Adithya M                  - 221CV104
+            \item Srujan Shantagouda Mukund  - 221EE253
+            \item Shashank J Shetty          - 221EE247 
+            \item Hazik Kirmani              - 221
+        \end{enumerate}
+    \end{minipage}
+\end{center}
+
+\newpage
+
+\vspace{1 in}
+\begin{center}
+\tableofcontents
+\end{center}
+    
+\newpage
+
+\section*{\textbf{Introduction}}
+\addcontentsline{toc}{section}{Introduction}
+
+The Household Consumption Expenditure Survey (HCES) serves as a vital mechanism for capturing comprehensive data on the consumption patterns of households. Its primary aim is to gather detailed information regarding the expenditures made by households across various goods and services. In addition to tracking expenditure, the survey also collects auxiliary data pertaining to household characteristics and demographic details. This auxiliary information encompasses factors such as household income, size, composition, education levels, employment status, and geographical location, providing a holistic view of household dynamics.By delving into the data obtained through HCES, economists and policymakers can glean valuable insights into the consumption behavior of households. This includes discerning trends in spending, identifying preferences for different types of goods and services, and tracking changes in consumption patterns over time. Furthermore, HCES data plays a pivotal role in assessing the standard of living and overall well-being of households. By analyzing the types of goods and services that households are able to afford, policymakers can gauge economic status and quality of life indicators.
+
+One of the critical uses of HCES data lies in the calculation of official Consumer Price Indices (CPIs). The survey collects information on the budget shares allocated by households to different commodity groups, which is then utilized to construct weighting diagrams determining the relative importance of various goods and services in the CPI basket. Moreover, HCES data is instrumental in deriving a plethora of other macroeconomic indicators, including measures related to inflation, poverty levels, income distribution, and overall economic growth.
+
+The decision to conduct consecutive surveys for 2020-21 and 2021-22 was made to evaluate the appropriateness of revising the 'base year' used in calculating macroeconomic indicators. However, the outbreak of the Covid-19 pandemic disrupted these plans, leading to the postponement of the 2020-21 survey. The first survey of the consecutive series commenced in August 2022 and continued until July 2023, once conditions were deemed conducive for conducting fieldwork. In essence, HCES serves as an invaluable tool for policymakers, researchers, and analysts in understanding household behavior, assessing economic conditions, and formulating evidence-based policy interventions.
+
+\section*{\textbf{Background\cite{r1}}}
+\addcontentsline{toc}{section}{Background}
+
+The National Sample Survey Office (NSSO) is an institution responsible for conducting household surveys on consumption and consumer expenditure at regular intervals. These surveys, known as rounds, typically last for one year. Since the inception of the National Sample Survey (NSS) in 1950-51, data on household consumer expenditure has been collected in every round up to the 28th round (1973-74). After the 26th round of the survey, the Governing Council of NSSO made a decision to conduct surveys on consumer expenditure and employment-unemployment together on a large scale, once every five years. This led to the introduction of quinquennial surveys, where data on consumption and employment were collected comprehensively and published in the subsequent rounds of NSS, roughly at 5-year intervals.
+
+The quinquennial surveys on household consumption expenditure were conducted and results were published in the following rounds of NSS: 27th (1972-73), 32nd (1977-78), 38th (1983), 43rd (1987-88), 50th (1993-94), 55th (1999-00), 61st (2004-05), 66th (2009-10), and 68th (2011-12). These surveys provided valuable insights into consumption patterns, expenditure trends, and the standard of living of households at periodic intervals.
+
+The latest survey on household consumption expenditure is the one conducted in 2022-23, titled "Household Consumption Expenditure Survey" (HCES). This survey aims to collect up-to-date and comprehensive data on the consumption behavior of households, their expenditure patterns, and the factors influencing their consumption decisions. The data collected in HCES 2022-23 will serve as a crucial source of information for policymakers, researchers, and analysts to analyze and understand the dynamics of household consumption in the current economic landscape.
+
+\section*{\textbf{Coverage}}
+\addcontentsline{toc}{section}{Coverage}
+
+The Household Consumption Expenditure Survey conducted in 2022-23 has achieved comprehensive coverage across the Indian Union, with the exception of a few inaccessible villages in the Andaman and Nicobar Islands. The survey has reached a vast geographic expanse, gathering information from 8,723 villages and 6,115 urban blocks spread across the entire country. This extensive coverage ensures that data is collected from diverse regions, reflecting the varied economic and social dynamics present in different parts of India.In total, the survey has targeted 2,61,746 households, comprising 1,55,014 households in rural areas and 1,06,732 households in urban areas. By including both rural and urban settings, the survey captures a comprehensive picture of household consumption patterns and expenditure behavior across different demographic and geographical contexts.
+
+The inclusion of such a large number of households and geographical areas enhances the representativeness and reliability of the survey findings. It allows policymakers, researchers, and analysts to gain insights into consumption trends, economic disparities, and standard of
+living across rural and urban India. The data collected from this extensive survey serves as a valuable resource for informed decision-making, policy formulation, and economic analysis aimed at addressing the diverse needs and challenges faced by households in the country.
+
+\section*{\textbf{I. Estimation of MPCE\cite{r2}}}
+\addcontentsline{toc}{section}{Estimation of MPCE}
+
+The summary of the level of household consumption expenditure, as measured by Monthly Per Capita Consumption Expenditure (MPCE) during 2022-23, is presented in this section. The estimates of MPCE presented here have been generated without imputing the value figures of the items (as mentioned in Para (b) of Page 5) received free by the households through various social welfare programs. The estimates of MPCE along with break-up by item groups and comparison with some previous NSS rounds are discussed here at all-India level. In addition, the estimates of average MPCE for the States and UTs are also included.
+
+
+\subsection*{\textbf{Average MPCE: All-India}}
+Average estimated MPCE in 2022-23 has been Rs. 3,773 in rural India and Rs. 6,459 in urban India. The share of food and non-food items in total MPCE is shown below in table1.
+
+\vspace{0.1in}
+
+% TABLE 1
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|c|c|c|c|}
+\toprule
+\multirow{2}{*}{\textbf{Item Group}} & \multicolumn{2}{|c|}{\textbf{Rural India}} & \multicolumn{2}{|c|}{\textbf{Urban India}} \\
+\cline{2-5}
+&\textbf{Averge MPCE (Rs)} & \textbf{Share (\%)} & \textbf{Averge MPCE (Rs)} & \textbf{Share (\%)}\\
+\midrule
+Food & 1,750 & 46 & 2,530 & 39 \\
+Non-food & 2,023 & 54 & 3,929 & 61 \\
+\bottomrule
+\end{tabular}
+\caption{Average MPCE (Rs.) and share of food and non-food items: All-India}
+\end{table}
+
+\vspace{0.1in}
+
+\begin{enumerate}
+    \item The bottom 5 $\%$ of India’s rural population, ranked by MPCE, has an average MPCE of Rs. 1,373 while it is Rs. 2,001 for the same category of population in urban areas.
+    \item The top 5 $\%$ of India’s rural and urban population, ranked by MPCE, has an average MPCE of Rs. 10,501 and Rs. 20,824, respectively.
+    \item Among the states, MPCE is the highest in Sikkim for both rural and urban areas (Rural – Rs. 7,731 and Urban – Rs. 12,105). It is the lowest in Chhattisgarh (Rural – Rs. 2,466 and Urban – Rs. 4,483).
+    \item The rural-urban difference in average MPCE, among the states is the highest in Meghalaya (83$\%$) followed by Chhattisgarh (82\%).
+    \item Among the UTs, MPCE is the highest in Chandigarh (Rural – Rs. 7,467 and Urban – Rs. 12,575), whereas, it is the lowest in Ladakh (Rs. 4,035) and Lakshadweep (Rs. 5,475) for rural and urban areas respectively.
+\end{enumerate}
+
+
+\subsection*{\textbf{Trend in level of consumption (average MPCE): All-India}}
+The table 2  below shows a comparison of the estimates of all-India average MPCE from the last four quinquennial surveys of consumption expenditure and HCES: 2022-23. 
+
+
+\vspace{0.1in}
+
+% TABLE 2
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Sector} & \multicolumn{5}{c|}{Average MPCE (Rs.)} \\ \cline{2-6}
+ & 1999-'00 & 2004-05 & 2009-10 & 2011-12 & 2022-23 \\  \hline
+Rural & 486 & 579 & 1,054 & 1,430 & 3,773 \\
+Urban & 855 & 1,105 & 1,984 & 2,630 & 6,459 \\ 
+Difference as \% of Rural MPCE & 75.9 & 90.8 & 88.2 & 83.9 & 71.2 \\ \hline
+\end{tabular}
+\caption{Average MPCE (Rs.) over Different Periods}
+\end{table}
+
+
+
+\subsection*{\textbf{Trend in share of consumption of cereals and food items in average MPCE: All-India}}
+
+
+The table 3  below shows the percentage share of ‘cereals’ and ‘all food items together’ in average MPCE at all-India level since 1999-00
+
+% TABLE 3
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\multirow{2}{*}{Period} & \multicolumn{2}{c|}{Rural} & \multicolumn{2}{c|}{Urban} \\ \cline{2-5}
+ & \% share of cereals in avg. MPCE & \% share of food in avg. MPCE & \% share of cereals in avg. MPCE & \% share of food in avg. MPCE \\ \hline
+1999-00 & 22.23 & 59.40 & 12.39 & 48.06 \\ 
+2004-05 & 17.45 & 53.11 & 9.63 & 40.51 \\ 
+2009-10 & 13.77 & 56.98 & 8.16 & 44.39 \\ 
+2011-12 & 10.75 & 52.90 & 6.66 & 42.62 \\ 
+2022-23 & 4.91 & 46.38 & 3.64 & 39.17 \\ \hline
+\end{tabular}
+\caption{Percentage Share of Cereals in Average MPCE}
+\small{Note: For the years 1999-00 \& 2004-05, the percentage shares are based on MRP estimates and for the years 2009-10, 2011-12 and 2022-23, these are based on MMRP estimates.}
+\end{table}
+
+
+
+
+\vspace{0.2in}
+
+\subsection*{\textbf{Average MPCE across the fractile classes of MPCE in 2022-23: All-India}}
+
+Fractiles and fractile classes of MPCE: For any fraction f (0<f<1), the corresponding fractile of the distribution of MPCE (Y) is the level of MPCE, say, Yf such that the proportion of population whose household MPCE lies below Yf is f. A fractile class of MPCE is a segment of the population lying within two fractiles f1 and f2.The estimates of average MPCE, at all-India level, across different fractile classes of MPCE is provided below in table 4.
+
+% TABLE 4 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{Fractile class of MPCE} & \multicolumn{1}{c|}{Rural}  & \multicolumn{1}{c|}{Urban} \\ \hline
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{Average MPCE (Rs.)} & \multicolumn{1}{c|}{Average MPCE (Rs.)} \\ \hline
+0-5\% & 1,373 & 2,001  \\ 
+5-10\% & 1,782 & 2,607  \\ 
+10-20\% & 2,112 & 3,157  \\ 
+20-30\% & 2,454 & 3,762  \\ 
+30-40\% & 2,768 & 4,348  \\ 
+40-50\% & 3,094 & 4,963  \\ 
+50-60\% & 3,455 & 5,662  \\ 
+60-70\% & 3,887 & 6,524  \\ 
+70-80\% & 4,458 & 7,673  \\ 
+80-90\% & 5,356 & 9,582  \\ 
+90-95\% & 6,638 & 12,399  \\ 
+95-100\% & 10,501 & 20,824  \\ 
+All Classes & 3,773 & 6,459 \\ \hline
+\end{tabular}
+\caption{Average MPCE in Rural and Urban Areas}
+\end{table}
+
+% BAR GRAPH
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{bargraph1.png}
+\end{figure}
+
+
+
+
+\subsection*{\textbf{Absolute and percentage break-up of MPCE by item groups in 2022-23: All-India}}
+
+\vspace{0.1in}
+The following table shows the average MPCE and percentage break-up of 
+MPCE by the item groups at all-India level.
+
+% TABLE 5
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|cc|cc|}
+\hline
+\multirow{2}{*}{Item group} & \multicolumn{2}{c|}{MPCE (Rs.)} & \multicolumn{2}{c|}{share in total MPCE} \\ 
+\cline{2-5}
+& RURAL & URBAN &  RURAL & URBAN \\ \hline
+Cereals \& cereal substitutes & 185 & 4.91 & 364 & 3.64 \\ 
+Pulses \& their products* & 76 & 2.01 & 90 & 1.39 \\ 
+Sugar \& salt & 35 & 0.93 & 39 & 0.60 \\ 
+Milk \& milk products & 314 & 8.33  & 466 & 7.22 \\ 
+Vegetables & 203 & 5.38 & 245 & 3.80 \\ 
+Fruits & 140 & 3.71 & 246 & 3.80 \\ 
+Egg, fish \& meat & 185 & 4.91 &  231 & 3.57 \\ 
+Edible oil & 136 & 3.59 & 153 & 2.37 \\ 
+Spices & 113 & 2.98 & 138 & 2.13 \\ 
+Beverages, refreshments, processed food\# & 363 & 9.62 & 687 & 10.64 \\ 
+\textbf{Food total} & 1,750 & 46.38  & 2,530 & 39.17 \\ 
+Pan, tobacco \& intoxicants & 143 & 3.79 & 157 & 2.43 \\ 
+Fuel and light & 251 & 6.66 & 404 & 6.26 \\ 
+Education & 125 & 3.30 & 374 & 5.78 \\ 
+Medical & 269 & 7.13 & 382 & 5.91 \\ 
+Conveyance & 285 & 7.55  & 555 & 8.59 \\ 
+Consumer services excluding conveyance & 192 & 5.08 &  382 & 5.92 \\ 
+Misc. goods, entertainment & 234 & 6.21 & 424 & 6.56 \\ 
+Rent & 30 & 0.78 &  423 & 6.56 \\ 
+Taxes and cesses & 5 & 0.13  & 16 & 0.24 \\ 
+Clothing, bedding \& footwear & 230 & 6.10 & 350 & 5.41 \\  \hline
+\end{tabular}
+\caption{Absolute and percentage break-up of MPCE by item group in 2022-23: All-India}
+\end{table}
+
+
+
+\newpage 
+
+\subsection*{\textbf{Trend in percentage composition of MPCE by item groups: All-India}}
+
+Percentage composition of MPCE by item groups since 1999-’00 is provided below seperately, for rural India and urban India in tables 6 $\&$ 7, repectively.
+
+\vspace{0.2in}
+
+% TABLE 6
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|ccccc|}
+\hline
+\multirow{2}{*}{Item Group} & \multicolumn{5}{c|}{NSS Round} \\ \cline{2-6}
+ & 1999-00 (55th) & 2004-05 (61st) & 2009-10 & 2011-12 (68th) & 2022-23 \\ \hline
+cereal & 22.16 & 17.38 & 13.71 & 10.69 & 4.89 \\ 
+cereal substitutes gram & 0.07 & 0.07 & 0.06 & 0.06 & 0.02 \\ 
+pulses and pulse products* & 0.13 & 0.13 & 0.13 & 0.14 & 0.24\\ 
+sugar \& salt & 3.81 & 2.97 & 3.19 & 2.76  & 1.77  \\ 
+milk and milk products & 2.60 & 2.48 & 2.34 & 1.83 & 0.93 \\ 
+vegetables & 8.75 & 8.17 & 7.64 & 8.04  & 8.33\\ 
+fruits (fresh) & 6.17 & 5.88 & 8.29 & 6.62 &  5.38\\ 
+fruits (dry) & 1.42 & 1.46 & 1.93 & 2.25 &  2.54\\ 
+egg, fish \& meat & 0.30 & 0.34 & 0.49 & 0.58 & 1.17 \\ 
+edible oil & 3.32 & 3.21 & 4.74 & 4.79 &4.91  \\ 
+spices & 3.74 & 4.44 & 3.69 & 3.74 & 3.59 \\ 
+beverages, processed food\# etc. & 2.74 & 2.21 & 3.36 & 3.50 & 2.98 \\ 
+food: total & 41.90 & 53.11 & 56.98 & 52.90  & 9.62 \\ 
+pan, tobacco \& intoxicants & 2.87 & 2.60 & 2.95 & 3.21 & 49.38 \\ 
+fuel and light & 7.52 & 9.81 & 8.03 & 7.98  &  3.79\\ 
+toilet articles \& other household consumables & 4.73 & 4.83 & 4.02 & 4.01 & 6.66 \\ 
+education & 1.93 & 3.12 & 3.59 & 3.49  & 5.12\\ 
+medical (hospitalization) & 1.37 & 1.62 & 1.65 & 2.15 & 3.30 \\ 
+medical (nonhospitalization) & 4.72 & 4.65 & 3.75 & 4.50  & 4.77\\ 
+conveyance & 2.94 & 3.63 & 3.45 & 4.20 &  7.55\\ 
+consumer services excluding conveyance & 2.98 & 3.66 & 4.21 & 3.99  &  5.08\\ 
+entertainment rent & 0.42 & 0.60 & 0.79 & 0.99  &  1.09\\ 
+other taxes \& cesses & 0.39 & 0.48 & 0.46 & 0.45  &  0.78\\ 
+clothing \& bedding & 0.16 & 0.19 & 0.21 & 0.25 & 0.13 \\ 
+footwear & 6.85 & 6.74 & 5.30 & 5.99 & 5.24 \\ 
+durable goods & 1.10 & 1.01 & 0.92 & 1.02 &0.86  \\ 
+non-food: total & 40.60 & 46.89 & 43.02 & 47.10 & 53.62  \\ 
+total expenditure & 100.00 & 100.00 & 100.00 & 100.00 & 100.00 \\ 
+\hline
+\end{tabular}
+\caption{Share in Total MPCE by Item Group in NSS Rounds (1999-00 to 2022-23) in RURAL India}
+\end{table}
+
+
+% TABLE 7
+\begin{table}[H]
+\centering
+\small % Reduce font size to fit the table on the page
+\begin{tabular}{|c|ccccc|}
+\hline
+\multirow{2}{*}{Item Group} & \multicolumn{5}{c|}{NSS Round} \\ 
+\cline{2-6}
+ & 1999-00 (55th) & 2004-05 (61st) & 2009-10 & 2011-12 (68th) & 2022-23 \\ \hline
+cereal & 22.16 & 17.38 & 13.71 & 10.69 & 4.89 \\ 
+cereal substitutes gram & 0.07 & 0.07 & 0.06 & 0.06 & 0.02 \\ 
+pulses and pulse products* & 0.13 & 0.13 & 0.13 & 0.14 & 0.24\\ 
+sugar \& salt & 3.81 & 2.97 & 3.19 & 2.76  & 1.77  \\ 
+milk and milk products & 2.60 & 2.48 & 2.34 & 1.83 & 0.93 \\ 
+vegetables & 8.75 & 8.17 & 7.64 & 8.04  & 8.33\\ 
+fruits (fresh) & 6.17 & 5.88 & 8.29 & 6.62 &  5.38\\ 
+fruits (dry) & 1.42 & 1.46 & 1.93 & 2.25 &  2.54\\ 
+egg, fish \& meat & 0.30 & 0.34 & 0.49 & 0.58 & 1.17 \\ 
+edible oil & 3.32 & 3.21 & 4.74 & 4.79 &4.91  \\ 
+spices & 3.74 & 4.44 & 3.69 & 3.74 & 3.59 \\ 
+beverages, processed food\# etc. & 2.74 & 2.21 & 3.36 & 3.50 & 2.98 \\ 
+food: total & 41.90 & 53.11 & 56.98 & 52.90  & 9.62 \\ 
+pan, tobacco \& intoxicants & 2.87 & 2.60 & 2.95 & 3.21 & 49.38 \\ 
+fuel and light & 7.52 & 9.81 & 8.03 & 7.98  &  3.79\\ 
+toilet articles \& other household consumables & 4.73 & 4.83 & 4.02 & 4.01 & 6.66 \\ 
+education & 1.93 & 3.12 & 3.59 & 3.49  & 5.12\\ 
+medical (hospitalization) & 1.37 & 1.62 & 1.65 & 2.15 & 3.30 \\ 
+medical (nonhospitalization) & 4.72 & 4.65 & 3.75 & 4.50  & 4.77\\ 
+conveyance & 2.94 & 3.63 & 3.45 & 4.20 &  7.55\\ 
+consumer services excluding conveyance & 2.98 & 3.66 & 4.21 & 3.99  &  5.08\\ 
+entertainment rent & 0.42 & 0.60 & 0.79 & 0.99  &  1.09\\ 
+other taxes \& cesses & 0.39 & 0.48 & 0.46 & 0.45  &  0.78\\ 
+clothing \& bedding & 0.16 & 0.19 & 0.21 & 0.25 & 0.13 \\ 
+footwear & 6.85 & 6.74 & 5.30 & 5.99 & 5.24 \\ 
+durable goods & 1.10 & 1.01 & 0.92 & 1.02 &0.86  \\ 
+non-food: total & 40.60 & 46.89 & 43.02 & 47.10 & 53.62  \\ 
+total expenditure & 100.00 & 100.00 & 100.00 & 100.00 & 100.00 \\ 
+\hline
+\end{tabular}
+\caption{Share in Total MPCE by Item Group in NSS Rounds (1999-00 to 2022-23) in URBAN India}
+\end{table}
+
+
+
+\newpage
+
+\subsection*{\textbf{Average MPCE by State $\&$ UTs in 2022-23}}
+
+The average MPCE in 2022-23 for each State  $\&$  UT is provided below in table 8 \cite{r3}.
+% TABLE 8 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|cc|}
+\multicolumn{3}{c}{} \\ % Add some space between caption and table
+\hline
+\multirow{2}{*}{State/UT} & \multicolumn{2}{c|}{Average MPCE (Rs.)} \\ 
+\cline{2-3}
+ & RURAL & URBAN\\
+\hline
+Andhra Pradesh & 4,870 & 6,782 \\ 
+Arunachal Pradesh & 5,276 & 8,636 \\ 
+Assam & 3,432 & 6,136 \\ 
+Bihar & 3,384 & 4,768 \\ 
+Chhattisgarh & 2,466 & 4,483 \\ 
+Delhi & 6,576 & 8,217 \\ 
+Goa & 7,367 & 8,734 \\ 
+Gujarat & 3,798 & 6,621 \\ 
+Haryana & 4,859 & 7,911 \\ 
+Himachal Pradesh & 5,561 & 8,075 \\ 
+Jharkhand & 2,763 & 4,931 \\ 
+Karnataka & 4,397 & 7,666 \\ 
+Kerala & 5,924 & 7,078 \\ 
+Madhya Pradesh & 3,113 & 4,987 \\ 
+Maharashtra & 4,010 & 6,657 \\ 
+Manipur & 4,360 & 4,880 \\ 
+Meghalaya & 3,514 & 6,433 \\ 
+Mizoram & 5,224 & 7,655 \\ 
+Nagaland & 4,393 & 7,098 \\ 
+Odisha & 2,950 & 5,187 \\ 
+Punjab & 5,315 & 6,544 \\ 
+Rajasthan & 4,263 & 5,913 \\ 
+Sikkim & 7,731 & 12,105 \\ 
+Tamil Nadu & 5,310 & 7,630 \\ 
+Telangana & 4,802 & 8,158 \\ 
+Tripura & 5,206 & 7,405 \\ 
+Uttarakhand & 4,641 & 7,004 \\ 
+Uttar Pradesh & 3,191 & 5,040 \\ 
+West Bengal & 3,239 & 5,267 \\ 
+Andaman Islands & 7,332 & 10,268\\ 
+Chandigarh & 7,467 & 10,268 \\ 
+Dadra \& Nagar Haveli and Daman \& Diu & 4,184 & 6,298 \\ 
+Jammu \& Kashmir & 4,296 & 6,179 \\
+Ladakh & 4,035 & 12,575 \\ 
+Lakshadweep & 5,895 & 6,298 \\  
+Puducherry & 6,590 & 6,179 \\ 
+all-India & 3,773 & 6,215 \\ 
+\hline
+\end{tabular}
+\caption{Average MPCE for each State/UT in 2022-23}
+\label{tab:average-mpce}
+\end{table}
+
+\newpage
+
+\subsection*{\textbf{Average MPCE by Household type: All-India}}
+
+The average MPCE by household type during the year 2022-23 is provided 
+below in table 9. 
+
+\vspace{0.1in}
+% TABLE 9 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\toprule
+\multicolumn{1}{|c|}{Household type} & \multicolumn{2}{|c|}{Average MPCE} \\
+\cline{2-3}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{Rural} & \multicolumn{1}{|c|}{Urban} \\
+\hline
+Self-employed in agriculture & 3,702 &  \\
+Self-employed in non-agriculture & 4,074 &  \\
+Regular wage/salaried earning in agriculture  & 3,597 &  \\
+Regular wage/salaried earning in non-agriculture  &  & 7,146 \\
+Casual labour in agriculture  & 3,273 &  \\
+Casual labour in non-agriculture  & 3,315 & 4,379 \\
+Others  & 4,684 & 8,619 \\
+All  & 3,773  &  6,459 \\
+\bottomrule
+\end{tabular}
+\caption{Average MPCE by household type in 2022-23: All India}
+\end{table}
+
+\vspace{0.1in}
+
+\subsection*{\textbf{Average MPCE by Social Groups : All-India}}
+
+The average MPCE by social groups is provided below in table 10.
+\vspace{0.1in}
+
+% TABLE 10
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+
+\hline
+\multirow{2}{*}{Social groups} & \multicolumn{2}{|c|}{Average MPCE (Rs.)} \\ 
+\cline{2-3}
+ & RURAL & URBAN\\
+ \hline
+
+Schedule Tribe & 3,016 & 5,414  \\
+Schedule Caste & 3,474 & 5,307 \\
+Other Backward Class  & 3,848 & 6,177 \\
+Others &  4,392  & 7,333 \\ \hline
+All  & 3,773 &  6,459 \\
+\hline
+\end{tabular}
+\caption{Average MPCE by Social Groups in 2022-23: All-India Average MPCE (Rs.)}
+\label{tab:mpce-social-groups}
+\end{table}
+
+\section*{\textbf{ II. Estimates of MPCE with imputation}}
+\addcontentsline{toc}{section}{Estimates of MPCE with imputation}
+
+The estimates of average Monthly Per Capita Consumption Expenditure (MPCE) presented in the context refer to the calculations made for assessing the average expenditure of individuals in households. These estimates are derived by considering various factors, including the imputed value figures of items received free by households through social welfare programs, consumption out of home-produced goods, free collection, gifts, loans, and other sources.The imputed value figures of items received free through social welfare programs are an essential component of the MPCE estimation process. These programs often provide essential goods and services to households without monetary transactions, such as subsidized food items, healthcare services, education benefits, and housing support. The imputed values assigned to these items help in accurately reflecting the economic well-being of households, as they represent the value of benefits received through such programs \cite{r4}.
+
+Additionally, MPCE estimates also take into account consumption patterns related to home-produced goods, items obtained through free collection (such as wild fruits, firewood, etc.), gifts from relatives or friends, and loans. These non-monetary transactions contribute to the overall consumption behavior of households and are factored into the MPCE calculations to provide a comprehensive understanding of expenditure patterns.It's important to note that while detailed break-ups of MPCE by item groups and comparisons with previous NSS rounds are discussed at the all-India level, the estimates presented for States and Union Territories (UTs) focus primarily on average MPCE. This approach allows for a broader overview of consumption expenditure trends across different geographical regions while still providing valuable insights into the average spending patterns of individuals within households.
+
+Overall, the inclusion of imputed values and considerations for non-monetary transactions in MPCE estimation enhances the accuracy and completeness of the data, enabling policymakers, researchers, and analysts to make informed decisions and assessments related to consumption patterns, welfare programs, and economic well-being at both national and regional levels.
+
+
+
+\subsection*{\textbf{Average MPCE : All-India}}
+
+\vspace{0.1in}
+
+Average estimated MPCE with imputed values of free items in 2022-23 has been Rs. 3,860 and Rs. 6,521, respectively in rural and urban India. 
+The share of food and non-food items in total MPCE is shown below in table 11.
+
+% TABLE 11
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabular}{|p{3cm}|c|c|c|p{3cm}|}
+        \hline
+        \textbf{Item Group} & \multicolumn{2}{c|}{\textbf{Rural India}} & \multicolumn{2}{c|}{\textbf{Urban India}} \\
+        \cline{2-5}
+         & \textbf{Avg. MPCE (Rs.)} & \textbf{Share (\%)} & \textbf{Avg. MPCE (Rs.)} & \textbf{Share (\%)} \\
+        \hline
+        Food & 1,832 & 47 & 2,589 & 40 \\
+        Non-food & 2,028 & 53 & 3,932 & 60 \\
+        \hline
+    \end{tabular}
+    \caption{Average MPCE (Rs.) and share of food and non-food items: All-India}
+    \label{tab:mpce_share}
+\end{table}
+
+
+\begin{enumerate}
+    \item The bottom 5\% of India’s rural population, ranked by MPCE, has an average MPCE of Rs. 1,441 while it is Rs. 2,087 in the urban areas.
+    
+    \item The top 5\% of India’s rural and urban population, ranked by MPCE, has an average MPCE of Rs. 10,581 and Rs. 20,846, respectively.
+    
+    \item Among the states, MPCE is the highest in Sikkim (Rural – Rs. 7,787 and Urban – Rs. 12,125) and it is the lowest in Chhattisgarh (Rural – Rs. 2,575, Urban – Rs. 4,557). The rural-urban difference in average MPCE among the states is the highest in Meghalaya (83\%) followed by Chhattisgarh and Jharkhand (77\%).
+    
+    \item Among the UTs, MPCE is the highest in Chandigarh (Rural – Rs. 7,467 and Urban – Rs. 12,577), whereas, it is the lowest in Ladakh (Rs. 4,062) and Lakshadweep (Rs. 5,511) for rural and urban areas, respectively.
+\end{enumerate}
+
+
+\subsection*{\textbf{Trend in level of consumption (Average MPCE): All-India}}
+
+The table 12 shows a comparison of the estimates of all-India average 
+MPCE from the last four quinquennial consumption expenditure surveys and HCES: 2022-23. 
+
+\vspace{0.1in}
+% TABLE 12
+\begin{table}[htbp]
+    \centering
+      \small % Smaller font size
+    \begin{tabular}{|l|c|c|c|c|c|}
+        \hline
+        \textbf{Sector} & \textbf{1999-‘00 NSS} & \textbf{2004-05 NSS} & \textbf{2009-10 NSS} & \textbf{2011-12 NSS} & \textbf{2022-23} \\
+        & \textbf{(55th round)} & \textbf{(61st round)} & \textbf{(66th round)} & \textbf{(68th round)} & \\
+        \textbf{Average MPCE (Rs.)} & & & & & \\
+        \midrule
+        Rural & 486 & 579 & 1,054 & 1,430 & 3,860 \\
+        Urban & 855 & 1,105 & 1,984 & 2,630 & 6,521 \\
+        \midrule
+        \textbf{Difference as \% of Rural MPCE} & 75.9 & 90.8 & 88.2 & 83.9 & 68 \\
+        \hline
+    \end{tabular}
+     \caption{Trend in level of Consumption since 1999-‘00: All-India}
+    \label{tab:consumption_trend}
+\end{table}
+
+
+\subsection*{\textbf{Trend in share of consumption of cereals and food items (all) in average MPCE: All-India}}
+
+\vspace{0.1in}
+The table 13 shows the percentage share of ‘cereals’ and ‘all food items together in average MPCE at all-India level.
+
+
+% TABLE 13
+\begin{table}[htbp]
+    \centering
+    \small % Smaller font size
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Period} & \multicolumn{2}{|c|}{\textbf{Rural}} & \multicolumn{2}{c|}{\textbf{Urban}} \\
+        \hline
+        & \textbf{\% share of cereals} & \textbf{\% share of food} & \textbf{\% share of cereals} & \textbf{\% share of food} \\
+        \hline
+        1999-00 & 22.23 & 59.40 & 12.39 & 48.06 \\
+        2004-05 & 17.45 & 53.11 & 9.63 & 40.51 \\
+        2009-10 & 13.77 & 56.98 & 8.16 & 44.39 \\
+        2011-12 & 10.75 & 52.90 & 6.66 & 42.62 \\
+        2022-23 & 6.92 & 47.47 & 4.51 & 39.70 \\
+        \hline
+    \end{tabular}
+    \caption{Trend in share of consumption of cereals and food items since 1999-’00: All-India}
+    \label{tab:cereal_food_share}
+\end{table}
+
+
+
+
+
+\subsection*{\textbf{Average MPCE across the fractile classes of MPCE in 2022-23: All- India}}
+
+The estimates of average MPCE across different fractile classes of MPCE at all-India level is provided in table 14 below.
+
+% TABLE 14
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Fractile class of MPCE} & \textbf{Average MPCE (Rs.) Rural} & \textbf{Average MPCE (Rs.) Urban} \\
+        \hline
+        0-5\% & 1,441 & 2,087 \\
+        5-10\% & 1,864 & 2,695 \\
+        10-20\% & 2,196 & 3,241 \\
+        20-30\% & 2,540 & 3,839 \\
+        30-40\% & 2,856 & 4,422 \\
+        40-50\% & 3,183 & 5,032 \\
+        50-60\% & 3,545 & 5,726 \\
+        60-70\% & 3,978 & 6,579 \\
+        70-80\% & 4,551 & 7,721 \\
+        80-90\% & 5,447 & 9,625 \\
+        90-95\% & 6,725 & 12,430 \\
+        95-100\% & 10,581 & 20,846 \\
+        All Classes & 3,860 & 6,521 \\
+        \hline
+    \end{tabular}
+     \caption{Average MPCE (Rs.) across fractile classes in 2022-23: All-India}
+    \label{tab:mpce_fractile}
+\end{table}
+
+
+% BARGRAPH 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{bargraph2.png}   
+\end{figure}
+
+\newpage
+
+\subsection*{\textbf{Absolute and percentage break-up of MPCE by item groups in 2022-23: All-India}}
+
+The table 15  shows the average MPCE and percentage break-up of MPCE by the item groups at all-India level.
+\vspace{0.1in}
+
+% TABLE 15
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \multirow{2}{*}{\textbf{Item group}} & \multicolumn{2}{c|}{\textbf{MPCE (Rs.)}} & \multicolumn{2}{c|}{\textbf{\% share in total MPCE}} \\
+        \cline{2-5}
+         & \textbf{Rural} & \textbf{Urban} & \textbf{Rural} & \textbf{Urban} \\
+        \hline
+        cereals \& cereal substitutes & 267 & 294 & 6.92 & 4.51 \\
+        pulses \& their products* & 76 & 90 & 1.97 & 1.38 \\
+        sugar \& salt & 35 & 39 & 0.92 & 0.60 \\
+        milk \& milk products & 314 & 466 & 8.14 & 7.15 \\
+        vegetables & 203 & 245 & 5.26 & 3.76 \\
+        fruits & 140 & 246 & 3.63 & 3.77 \\
+        egg, fish \& meat & 185 & 231 & 4.80 & 3.54 \\
+        edible oil & 136 & 153 & 3.52 & 2.35 \\
+        spices & 113 & 138 & 2.92 & 2.11 \\
+        beverages, refreshments, processed food\# & 363 & 687 & 9.41 & 10.53 \\
+        food total & 1,832 & 2,589 & 47.47 & 39.70 \\
+        \hline
+        pan, tobacco \& intoxicants & 143 & 157 & 3.70 & 2.41 \\
+        fuel and light & 251 & 404 & 6.51 & 6.20 \\
+        education & 125 & 374 & 3.23 & 5.73 \\
+        medical & 269 & 382 & 6.96 & 5.85 \\
+        conveyance & 285 & 555 & 7.38 & 8.51 \\
+        consumer services excluding conveyance & 192 & 382 & 4.96 & 5.86 \\
+        misc. goods, entertainment & 234 & 424 & 6.07 & 6.50 \\
+        rent & 30 & 423 & 0.76 & 6.49 \\
+        taxes and cesses & 5 & 16 & 0.12 & 0.24 \\
+        clothing, bedding \& footwear & 233 & 351 & 6.03 & 5.38 \\
+        durable goods & 262 & 465 & 6.79 & 7.13 \\
+        non-food total & 2,028 & 3,932 & 52.53 & 60.30 \\
+        \hline
+        all items & 3,860 & 6,521 & 100.00 & 100.00 \\
+        \hline
+    \end{tabular}
+     \caption{Absolute and percentage break-up of MPCE by item group in 2022-23: All-India}
+    \label{tab:mpce_item_group}
+\end{table}
+
+\newpage
+\subsection*{\textbf{Trend in percentage composition of MPCE by item groups: All-India}}
+
+Percentage composition in MPCE since 1999-’00 is provided below seperately for rural and urban India in tables 16 \& 17, repectively \cite{r5}.
+
+\vspace{0.1in }
+% TABLE 16
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|ccccc|}
+        \hline
+        \multirow{2}{*}{\textbf{Item group}} & \multicolumn{4}{c|}{\textbf{\% share in total MPCE}} \\
+        
+         & \textbf{1999-00} & \textbf{2004-05} & \textbf{2009-10} & \textbf{2011-12} & \textbf{2022-23} \\
+        \hline
+        cereal & 22.16 & 17.38 & 13.71 & 10.69 & 6.90 \\
+        cereal substitutes & 0.07 & 0.07 & 0.06 & 0.06 & 0.02 \\
+        gram & 0.13 & 0.13 & 0.13 & 0.14 & 0.24 \\
+        pulses and pulse products* & 3.81 & 2.97 & 3.19 & 2.76 & 1.73 \\
+        sugar \& salt & 2.60 & 2.48 & 2.34 & 1.83 & 0.92 \\
+        milk and milk products & 8.75 & 8.17 & 7.64 & 8.04 & 8.14 \\
+        vegetables & 6.17 & 5.88 & 8.29 & 6.62 & 5.26 \\
+        fruits (fresh) & 1.42 & 1.46 & 1.93 & 2.25 & 2.48 \\
+        fruits (dry) & 0.30 & 0.34 & 0.49 & 0.58 & 1.15 \\
+        egg, fish \& meat & 3.32 & 3.21 & 4.74 & 4.79 & 4.80 \\
+        edible oil & 3.74 & 4.44 & 3.69 & 3.74 & 3.52 \\
+        spices & 2.74 & 2.21 & 3.36 & 3.50 & 2.92 \\
+        beverages, processed food\# & 4.19 & 4.38 & 7.40 & 7.90 & 9.41 \\
+        food: total & 59.40 & 53.11 & 56.98 & 52.90 & 47.47 \\
+        \hline
+          pan, tobacco \& intoxicants & 2.87 & 2.60 & 2.95 & 3.21 & 3.70 \\
+        fuel and light & 7.52 & 9.81 & 8.03 & 7.98 & 6.51 \\
+        toilet articles \& other household consumables & 4.73 & 4.83 & 4.02 & 4.01 & 5.01 \\
+        education & 1.93 & 3.12 & 3.59 & 3.49 & 3.23 \\
+        medical (hospitalization) & 1.37 & 1.62 & 1.65 & 2.15 & 2.31 \\
+        medical (non-hospitalization) & 4.72 & 4.65 & 3.75 & 4.50 & 4.66 \\
+        conveyance & 2.94 & 3.63 & 3.45 & 4.20 & 7.38 \\
+        consumer services excluding conveyance & 2.98 & 3.66 & 4.21 & 3.99 & 4.96 \\
+        entertainment & 0.42 & 0.60 & 0.79 & 0.99 & 1.06 \\
+        rent & 0.39 & 0.48 & 0.46 & 0.45 & 0.76 \\
+        other taxes \& cesses & 0.16 & 0.19 & 0.21 & 0.25 & 0.12 \\
+        clothing \& bedding & 6.85 & 6.74 & 5.30 & 5.99 & 5.18 \\
+        footwear & 1.10 & 1.01 & 0.92 & 1.02 & 0.85 \\
+        durable goods & 2.62 & 3.95 & 3.69 & 4.85 & 6.79 \\
+        non-food: total & 40.60 & 46.89 & 43.02 & 47.10 & 52.53 \\
+        \hline
+    \end{tabular}
+    \caption{Trend in percentage composition of MPCE since 1999-‘00: Rural India}
+    \label{tab:mpce_trend_rural}
+\end{table}
+
+
+% TABLE 17
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|ccccc|}
+        \hline
+        \multirow{2}{*}{\textbf{Item group}} & \multicolumn{4}{c|}{\textbf{\% share in total MPCE}} \\
+       
+         & \textbf{1999-00} & \textbf{2004-05} & \textbf{2009-10} & \textbf{2011-12} & \textbf{2022-23} \\
+        \hline
+        cereal & 12.35 & 9.58 & 8.12 & 6.61 & 4.49 \\
+        cereal substitutes & 0.04 & 0.05 & 0.04 & 0.05 & 0.02 \\
+        gram & 0.11 & 0.10 & 0.10 & 0.11 & 0.18 \\
+        pulses and pulse products* & 2.84 & 2.04 & 2.37 & 1.93 & 1.20 \\
+        sugar \& salt & 1.80 & 1.57 & 1.49 & 1.15 & 0.60 \\
+        milk and milk products & 8.68 & 7.54 & 6.90 & 7.01 & 7.15 \\
+        vegetables & 5.13 & 4.24 & 5.67 & 4.63 & 3.76 \\
+        fruits (fresh) & 1.95 & 1.68 & 2.54 & 2.64 & 2.48 \\
+        fruits (dry) & 0.47 & 0.46 & 0.63 & 0.78 & 1.29 \\
+        egg, fish \& meat & 3.13 & 2.58 & 3.63 & 3.65 & 3.54 \\
+        edible oil & 3.14 & 3.29 & 2.66 & 2.66 & 2.35 \\
+        spices & 2.07 & 1.47 & 2.21 & 2.42 & 2.11 \\
+        beverages, processed food\# & 6.35 & 5.91 & 8.03 & 8.98 & 10.53 \\
+        food: total & 48.06 & 40.51 & 44.39 & 42.62 & 39.70 \\
+        \hline
+        pan, tobacco \& intoxicants & 1.90 & 1.54 & 1.53 & 1.61 & 2.41 \\
+        fuel and light & 7.75 & 9.47 & 6.94 & 6.69 & 6.20 \\
+        toilet articles \& other household consumables & 5.50 & 4.65 & 3.88 & 3.88 & 4.93 \\
+        education & 4.33 & 6.67 & 8.09 & 6.90 & 5.73 \\
+        medical (hospitalization) & 1.44 & 1.44 & 1.83 & 1.96 & 1.89 \\
+        medical (non-hospitalization) & 3.62 & 3.76 & 3.16 & 3.58 & 3.96 \\
+        conveyance & 5.52 & 6.21 & 5.63 & 6.52 & 8.51 \\
+        consumer services excluding conveyance & 4.73 & 6.71 & 6.25 & 5.60 & 5.86 \\
+        entertainment & 1.16 & 1.79 & 1.60 & 1.61 & 1.57 \\
+        rent & 4.46 & 5.38 & 5.79 & 6.24 & 6.49 \\
+        other taxes \& cesses & 0.69 & 0.77 & 0.79 & 0.82 & 0.24 \\
+        clothing \& bedding & 6.05 & 5.60 & 4.85 & 5.37 & 4.62 \\
+        footwear & 1.18 & 1.03 & 0.96 & 1.00 & 0.76 \\
+        durable goods & 3.61 & 4.46 & 4.31 & 5.60 & 7.13 \\
+        non-food: total & 51.94 & 59.49 & 55.61 & 57.38 & 60.30 \\
+        \hline
+    \end{tabular}
+    \caption{Trend in percentage composition of MPCE since 1999-‘00: Urban India}
+\end{table}
+
+
+\newpage 
+
+\subsection*{\textbf{Average MPCE by State \& UTs in 2022-23}}
+
+The average MPCE in 2022-23 for each State \& UT is provided below in 
+table 18 \cite{r6}.
+
+\vspace{0.1in}
+% TABLE 18
+\renewcommand{\arraystretch}{1.25}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{State/UT} & \textbf{Average MPCE (Rs.) Rural} & \textbf{Average MPCE (Rs.) Urban} \\
+\hline
+Andhra Pradesh & 4,996 & 6,877 \\
+Arunachal Pradesh & 5,300 & 8,649 \\
+Assam & 3,546 & 6,210 \\
+Bihar & 3,454 & 4,819 \\
+Chhattisgarh & 2,575 & 4,557 \\
+Delhi & 6,595 & 8,250 \\
+Goa & 7,388 & 8,761 \\
+Gujarat & 3,820 & 6,630 \\
+Haryana & 4,912 & 7,948 \\
+Himachal Pradesh & 5,573 & 8,083 \\
+Jharkhand & 2,796 & 4,946 \\
+Karnataka & 4,578 & 7,781 \\
+Kerala & 5,960 & 7,102 \\
+Madhya Pradesh & 3,158 & 5,011 \\
+Maharashtra & 4,076 & 6,683 \\
+Manipur & 4,370 & 4,902 \\
+Meghalaya & 3,530 & 6,450 \\
+Mizoram & 5,243 & 7,664 \\
+Nagaland & 4,457 & 7,159 \\
+Odisha & 2,996 & 5,223 \\
+Punjab & 5,363 & 6,577 \\
+Rajasthan & 4,348 & 5,970 \\
+Sikkim & 7,787 & 12,125 \\
+Tamil Nadu & 5,457 & 7,742 \\
+Telangana & 4,959 & 8,251 \\
+Tripura & 5,301 & 7,473 \\
+Uttarakhand & 4,721 & 7,034 \\
+Uttar Pradesh & 3,277 & 5,104 \\
+West Bengal & 3,407 & 5,426 \\
+Andaman \& N Islands & 7,332 & 10,268 \\
+Chandigarh & 7,467 & 12,577 \\
+Dadra \& Nagar Haveli and Daman \& Diu & 4,229 & 6,306 \\
+Jammu \& Kashmir & 4,357 & 6,200 \\
+Ladakh & 4,062 & 6,227 \\
+Lakshadweep & 5,979 & 5,511 \\
+Puducherry & 6,627 & 7,741 \\
+All-India & 3,860 & 6,521 \\
+\hline
+\end{tabular}
+\caption{Average MPCE for each State/UT in 2022-23}
+\label{tab:mpce_states}
+\end{table}
+
+\newpage
+
+\subsection*{\textbf{Average MPCE by Household type: All-India }}
+
+The average MPCE by household type in the year 2022-23 is provided below
+in table 19.
+\vspace{0.1in}
+% TABLE 19
+\renewcommand{\arraystretch}{1.25} 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Household type} & \textbf{Average MPCE (Rs.)} \\
+\hline
+\multicolumn{2}{|c|}{Rural} \\
+\hline
+Self-employed in agriculture & 3,783 \\
+Self-employed in non-agriculture & 4,159 \\
+Regular wage/salaried earning in agriculture & 3,692 \\
+Regular wage/salaried earning in non-agriculture & 4,606 \\
+Casual labour in agriculture & 3,379 \\
+Casual labour in non-agriculture & 3,410 \\
+Others & 4,771 \\
+All & 3,860 \\
+\hline
+\multicolumn{2}{|c|}{Urban} \\
+\hline
+Self-employed & 6,132 \\
+Regular wage/salaried earning & 7,198 \\
+Casual labour & 4,474 \\
+Others & 8,666 \\
+All & 6,521 \\
+\hline
+\end{tabular}
+\caption{Average MPCE by Household Type in 2022-23: All-India}
+\label{tab:mpce_household_type}
+\end{table}
+
+
+\vspace{0.2in}
+
+\subsection*{\textbf{Average MPCE by Social Groups: all-India }}
+
+The average MPCE by social groups in India is provided below in table 20.
+
+\vspace{0.1in}
+
+% TABLE 20 
+\renewcommand{\arraystretch}{1.25} 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Social Groups} & \textbf{Average MPCE (Rs.) Rural} & \textbf{Average MPCE (Rs.) Urban} \\
+\hline
+Schedule Tribe & 3,098 & 5,472 \\
+
+Schedule Caste & 3,571 & 5,386 \\
+
+Other Backward Class & 3,935 & 6,245 \\
+
+Others & 4,472 & 7,382 \\
+
+All & 3,860 & 6,521 \\
+\hline
+\end{tabular}
+\caption{Average MPCE by Social Groups in 2022-23: All-India}
+\label{tab:mpce_social_groups}
+\end{table}
+
+
+
+\section*{\textbf{III. Conclusion }}
+\addcontentsline{toc}{section}{Conclusion }
+
+\vspace{0.1in}
+
+\subsection*{\textbf{Number of households surveyed in Household Consumption Expenditure Survey: 2022-23 along with estimated number of households}}
+
+% TABLE 21
+
+\renewcommand{\arraystretch}{1.25} % Increase row spacing for the table
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+
+\hline
+\textbf{State/UT} & \textbf{Sample Rural} & \textbf{Sample Urban} & \textbf{Estimated (OO') Rural} & \textbf{Estimated (OO') Urban}  \\
+\hline
+Andhra Pradesh & 6,245 & 4,025 & 95,813 & 45,443 \\
+\hline
+Arunachal Pradesh & 2,581 & 1,440 & 1,953 & 602 \\
+\hline
+Assam & 6,045 & 2,517 & 63,174 & 9,279 \\
+\hline
+Bihar & 13,602 & 3,564 & 1,98,464 & 18,955 \\
+\hline
+Chhattisgarh & 2,867 & 2,141 & 47,120 & 12,298 \\
+\hline
+Delhi & 305 & 2,931 & 510 & 30,965 \\
+\hline
+Goa & 360 & 323 & 1,569 & 2,270 \\
+\hline
+Gujarat & 5,726 & 5,560 & 73,816 & 58,955 \\
+\hline
+Haryana & 2,796 & 2,472 & 33,394 & 22,330 \\
+\hline
+Himachal Pradesh & 1,406 & 1,036 & 17,260 & 2,601 \\
+\hline
+Jharkhand & 3,927 & 2,458 & 55,031 & 14,021 \\
+\hline
+Karnataka & 6,688 & 5,701 & 89,231 & 61,965 \\
+\hline
+Kerala & 3,870 & 3,507 & 46,172 & 42,846 \\
+\hline
+Madhya Pradesh & 8,551 & 5,644 & 1,14,334 & 41,241 \\
+\hline
+Maharashtra & 11,596 & 11,163 & 1,50,360 & 1,19,824 \\
+\hline
+Manipur & 2,572 & 2,261 & 4,440 & 1,767 \\
+\hline
+Meghalaya & 2,132 & 1,079 & 5,610 & 1,112 \\
+\hline
+Mizoram & 1,439 & 2,157 & 1,229 & 1,033 \\
+\hline
+Nagaland & 1,996 & 1,079 & 2,341 & 979 \\
+\hline
+Odisha & 6,732 & 2,453 & 87,449 & 15,796 \\
+\hline
+Punjab & 3,076 & 2,754 & 40,039 & 24,166 \\
+\hline
+Rajasthan & 8,724 & 4,438 & 1,10,176 & 39,106 \\
+\hline
+Sikkim & 1,411 & 720 & 1,189 & 608 \\
+\hline
+Tamil Nadu & 7,447 & 6,917 & 1,10,296 & 1,01,180 \\
+\hline
+Telangana & 3,553 & 3,233 & 58,055 & 52,002 \\
+\hline
+Tripura & 3,222 & 1,800 & 7,032 & 2,083 \\
+\hline
+Uttarakhand & 1,700 & 1,073 & 18,136 & 5,353 \\
+\hline
+Uttar Pradesh & 19,611 & 10,627 & 3,07,870 & 85,072 \\
+\hline
+West Bengal & 10,715 & 7,421 & 1,68,057 & 67,825 \\
+\hline
+Andaman \& N Islands & 644 & 356 & 625 & 498 \\
+\hline
+Chandigarh & 360 & 360 & 82 & 2,521 \\
+\hline
+Dadra \& Nagar Haveli and Daman \& Diu & 350 & 324 & 716 & 1,389 \\
+\hline
+Jammu \& Kashmir & 1,761 & 1,772 & 18,123 & 6,347 \\
+\hline
+Ladakh & 359 & 360 & 371 & 79 \\
+\hline
+Lakshadweep & 252 & 355 & 26 & 80 \\
+\hline
+Puducherry & 359 & 711 & 1,137 & 2,437 \\
+\hline
+All-India & 1,55,014 & 1,06,732 & 19,48,954 & 8,95,030 \\
+\hline
+\end{tabular}
+\caption{Number of Households and Sample Estimated for Rural and Urban Areas}
+\label{tab:households}
+\end{table}
+
+
+The analysis of State-level rural and urban growth of consumption based on the data from the Household Consumption Expenditure Survey  reveals several key insights into the consumption patterns and expenditure behavior across different regions of India. Firstly, it is evident that there is significant variation in the number of households surveyed and estimated in both rural and urban areas across states and Union Territories (UTs). States like Uttar Pradesh, Bihar, Madhya Pradesh, Maharashtra, and West Bengal have large sample sizes, reflecting their high population density and economic significance. Conversely, smaller states and UTs such as Goa, Sikkim, Manipur, and Ladakh have comparatively smaller sample sizes due to their lower population.
+
+The average Monthly Per Capita Consumption Expenditure (MPCE) figures provide valuable information about the standard of living and economic well-being of households. Rural areas generally exhibit lower average MPCE compared to urban areas, indicating differences in consumption levels and affordability. States like Sikkim, Chandigarh, and Delhi stand out with higher average MPCE figures, reflecting better economic conditions and higher purchasing power. The rural-urban difference in average MPCE varies across states, with some regions showing significant disparities. Meghalaya, Chhattisgarh, and Jharkhand, for instance, have substantial rural-urban gaps in average MPCE, highlighting economic inequalities within these states. The percentage composition of MPCE by item groups provides insights into consumption patterns. The share of food items in total MPCE remains substantial across all states, emphasizing the importance of food expenditure in household budgets. Additionally, trends in consumption of cereals and food items over the years show stability in consumption preferences among households.
+
+Overall, the analysis underscores the diverse consumption behaviors and economic conditions prevailing in different states and UTs. It highlights the need for targeted policies and interventions to address economic disparities, improve living standards, and promote inclusive growth across rural and urban areas. Policymakers can leverage this data to design strategies aimed at enhancing household welfare, promoting sustainable consumption patterns, and fostering balanced regional development.
+
+
+
+% Add your content for this section here
+\vspace{0.5 in}
+\bibliography{ref}
+\addcontentsline{toc}{section}{References}
+
+\end{document}
